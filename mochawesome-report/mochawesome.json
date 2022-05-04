@@ -1,0 +1,141 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-04T18:08:07.426Z",
+    "end": "2022-05-04T18:08:24.433Z",
+    "duration": 17007,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d03b3346-c1b7-4b46-8cc1-1acaae38b8d0",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8f1b332d-565d-439c-844f-5cd6330c822f",
+          "title": "Adding new user in Firefox Browser",
+          "fullFile": "C:\\Users\\PC\\Desktop\\UpdatedHomework\\test\\demoqaPageFirefox.js",
+          "file": "\\test\\demoqaPageFirefox.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Successfully addition of the new user in Firefox Browser",
+              "fullTitle": "Adding new user in Firefox Browser Successfully addition of the new user in Firefox Browser",
+              "timedOut": null,
+              "duration": 12852,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Input variables\nlet url = \"https://demoqa.com/text-box\";\nlet fullName = \"Name Surename\";\nlet testEmail = \"email@gmail.com\";\nlet adress = \"40, 18 Bagratunyats ave., Yerevan, RA\";\nlet driver = await new Builder().forBrowser(\"firefox\").build();\n//Visiting DemoQA.com\nawait driver.get(url);\n// Assertion that we are in the correct page\nlet currentUrl = await driver.getCurrentUrl()\nexpect(currentUrl).to.equal(url);\n//Filling the Submit Form\nlet userNameField = await driver.findElement(By.id(\"userName\"));\nlet userEmailField = await driver.findElement(By.id(\"userEmail\"));\nlet currentAddressField = await driver.findElement(By.id(\"currentAddress\"));\nlet permanentAddressField = await driver.findElement(By.id(\"permanentAddress\"));\n\nuserNameField.sendKeys(fullName);\nuserEmailField.sendKeys(testEmail);\ncurrentAddressField.sendKeys(adress);\npermanentAddressField.sendKeys(adress);\n//Submitting the Form\nawait driver.findElement(By.id(\"submit\")).click();\n//Assertions\nlet name = await driver.findElement(By.id(\"name\")).getText()\nlet email = await driver.findElement(By.id(\"email\")).getText()\nlet currentAddressCheck = await driver.findElement(By.css('#currentAddress:nth-child(3)')).getText()\nlet permanentAddressCheck = await driver.findElement(By.css('#permanentAddress:last-child.mb-1')).getText()\nexpect(name).to.contain(fullName);\nexpect(email).to.contain(testEmail);\nexpect(currentAddressCheck).to.contain(adress);\nexpect(permanentAddressCheck).to.contain(adress);\n//Closing the browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "bb151b4d-5176-49b0-8f0e-b2509de278d7",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bb151b4d-5176-49b0-8f0e-b2509de278d7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12852,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        },
+        {
+          "uuid": "a40e72b6-7f14-4448-bab4-5c4c9528d6ce",
+          "title": "Adding new user in Chrome Browser",
+          "fullFile": "C:\\Users\\PC\\Desktop\\UpdatedHomework\\test\\demoqaPageChrome.js",
+          "file": "\\test\\demoqaPageChrome.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Successfully addition of the new user in Chrome Browser",
+              "fullTitle": "Adding new user in Chrome Browser Successfully addition of the new user in Chrome Browser",
+              "timedOut": null,
+              "duration": 16544,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Input variables\nlet url = \"https://demoqa.com/text-box\";\nlet fullName = \"Name Surename\";\nlet testEmail = \"email@gmail.com\";\nlet adress = \"40, 18 Bagratunyats ave., Yerevan, RA\";\nlet driver = await new Builder().forBrowser(\"chrome\").build();\n//Visiting DemoQA.com\nawait driver.get(url);\n// Assertion that we are in the correct page\nlet currentUrl = await driver.getCurrentUrl()\nexpect(currentUrl).to.equal(url);\n//Filling the Submit Form\nlet userNameField = await driver.findElement(By.id(\"userName\"));\nlet userEmailField = await driver.findElement(By.id(\"userEmail\"));\nlet currentAddressField = await driver.findElement(By.id(\"currentAddress\"));\nlet permanentAddressField = await driver.findElement(By.id(\"permanentAddress\"));\n\nuserNameField.sendKeys(fullName);\nuserEmailField.sendKeys(testEmail);\ncurrentAddressField.sendKeys(adress);\npermanentAddressField.sendKeys(adress);\n//Submitting the Form\nawait driver.findElement(By.id(\"submit\")).click();\n//Assertions\nlet name = await driver.findElement(By.id(\"name\")).getText()\nlet email = await driver.findElement(By.id(\"email\")).getText()\nlet currentAddressCheck = await driver.findElement(By.css('#currentAddress:nth-child(3)')).getText()\nlet permanentAddressCheck = await driver.findElement(By.css('#permanentAddress:last-child.mb-1')).getText()\n/*assert.equal(name, (\"Name:\" + fullName));\nassert.equal(email, (\"Email:\" + testEmail));\nassert.equal(currentAddressCheck, (\"Current Address :\" + adress));\nassert.equal(permanentAddressCheck, (\"Permananet Address :\" + adress));*/\nexpect(name).to.contain(fullName);\nexpect(email).to.contain(testEmail);\nexpect(currentAddressCheck).to.contain(adress);\nexpect(permanentAddressCheck).to.contain(adress);\n//Closing the browser\nawait driver.quit();",
+              "err": {},
+              "uuid": "b5a1d0a9-5a0b-440e-8528-791b9ca04800",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b5a1d0a9-5a0b-440e-8528-791b9ca04800"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16544,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": null
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "repritFilename": "FinalReport"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
